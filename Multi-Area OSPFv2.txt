@@ -1,0 +1,43 @@
+Step 1: Open Cisco Packet Tracer, go to Network devices > Routers > add 3 routers of 1841.
+Step 2: Now click on Router0 > Switch off the button > add WIC-2T > Switch On. Do the
+        same for remaining Routers.
+Step 3: Go to Connections > select Serial DCE and connect the routers with serial 0/0/0 to serial 0/0/1.
+Step 4: Go to Network devices > Switches > add 3 switches of 2960. One Switch for one Router.
+Step 5: Go to End Devices > add 2 PCs to each switch.
+Step 6: Go to Connections > choose first wire > connect Router to Switch and Switch to PC.
+Step 7: Assigning IP address to serial, click on router > config > serial port > checkbox on >
+        clock rate to 64000 then assign IP address and for fastEathernet, click on router > config >
+        fastEathernet port > checkbox on then assign IP address.
+Step 8: Assigning IP address to PCs, click on PC > Desktop > IP Configuration > assign IP
+        address and Default Gateway (i.e. the fastEathernet IP connected to the switch), then the
+        final topology with IP addresses will look like:
+Step 9: To implement Multi-Area OSPFv2, click on Respective Routers then go to CLI tab
+        then execute commands run commands with their respective routers:
+
+Router 0: en
+          conf t
+          router ospf 2
+          network 10.0.0.0 0.255.255.255 area 0
+          network 20.0.0.0 0.255.255.255 area 0
+          network 50.0.0.0 0.255.255.255 area 0
+          exit
+          exit
+
+Router 1: en
+          conf t
+          router ospf 2
+          network 10.0.0.0 0.255.255.255 area 0
+          network 40.0.0.0 0.255.255.255 area 0
+          exit
+
+Router 0: en
+          conf t
+          router ospf 2
+          network 20.0.0.0 0.255.255.255 area 0
+          network 30.0.0.0 0.255.255.255 area 0
+          network 60.0.0.0 0.255.255.255 area 0
+          exit
+
+PC 0: ping 60.0.0.2
+
+PC 4: ping 50.0.0.3
