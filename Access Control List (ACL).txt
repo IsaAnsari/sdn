@@ -1,0 +1,38 @@
+Step 1: Open Cisco Packet Tracer, go to Network devices > Routers > add 3 routers of 1841.
+Step 2: Now click on Router0 > Switch off the button > add WIC-2T > Switch On. Do the
+        same for remaining Routers.
+Step 3: Go to Connections > select Serial DCE and connect the routers with serial 0/0/0 to serial 0/0/1.
+Step 4: Go to End Devices > add 1 PC to each router.
+Step 5: Go to Connections > choose first wire > connect Router to PC.
+Step 6: Assigning IP address to serial, click on router > config > serial port > checkbox on >
+        clock rate to 64000 then assign IP address and for fastEathernet, click on router > config >
+        fastEathernet port > checkbox on then assign IP address.
+Step 7: Assigning IP address to PCs, click on PC > Desktop > IP Configuration > assign IP
+        address and Default Gateway (i.e. the fastEathernet IP connected to the switch), then the
+        final topology with IP addresses will look like:
+
+Step 8: Commands for Standard ACL: go to second (Router1) router and run
+        Router>en
+        Router#conf t
+        Router(config)#access-list 1 deny 40.0.0.2 0.0.0.0
+        Router(config)#access-list 1 permit any
+        Router(config)#interface Fa0/0
+        Router(config-if)#ip access-group 1 out
+        Router(config-if)#exit
+        Router(config)#exit
+        Router#show access-list
+
+        PC 1: ping 40.0.0.2
+
+Step 9: Commands for Extended ACL: go to second (Router1) router and run
+        Router>en
+        Router#conf t
+        Router(config)#access-list 101 deny tcp 40.0.0.2 0.0.0.0 50.0.0.2 0.0.0.0 eq 80
+        Router(config)#access-list 101 permit ip any any
+        Router(config)#interface Fa0/0
+        Router(config-if)#ip access-group 101 in
+        Router(config-if)#exit
+        Router(config)#exit
+        Router#show access-list
+
+        PC 1: ping 50.0.0.2
