@@ -1,0 +1,28 @@
+Step 1: Open Cisco Packet Tracer, go to Network devices > Routers > add 3 routers of 1841.
+Step 2: Now click on Router0 > Switch off the button > add WIC-2T > Switch On. Do the
+        same for remaining Routers.
+Step 3: Go to Connections > select Serial DCE and connect the routers with serial 0/0/0 to serial 0/0/1.
+Step 4: Go to Network devices > Switches > add 3 switches of 2960. One Switch for one Router.
+Step 5: Go to End Devices > add 2 PCs to each switch.
+Step 6: Go to Connections > choose first wire > connect Router to Switch and Switch to PC.
+Step 7: Assigning IP address to serial, click on router > config > serial port > checkbox on >
+        clock rate to 64000 then assign IP address and for fastEathernet, click on router > config >
+        fastEathernet port > checkbox on then assign IP address.
+Step 8: Assigning IP address to PCs, click on PC > Desktop > IP Configuration > assign IP
+        address and Default Gateway (i.e. the fastEathernet IP connected to the switch), then the
+        final topology with IP addresses will look like:
+Step 9: To implement V-LAN, first go to router 0,1,2 > Config > RIP > add IP addresses:
+Step 10: Now click on any one switch > go to CLI and run following commands:
+        Switch>en
+        Switch#conf t
+        Switch(config)#vlan 10
+        Switch(config-vlan)#name administration-Department
+        Switch(config-vlan)#exit
+        Switch(config)#vlan 20
+        Switch(config-vlan)#name operation-Department
+        Switch(config-vlan)#exit
+        Switch(config)#vlan 30
+        Switch(config-vlan)#name HR-Department
+        Switch(config-vlan)#exit
+        Switch(config)#exit
+        Switch#show vlan brief
