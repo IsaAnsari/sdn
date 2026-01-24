@@ -1,0 +1,40 @@
+Step 1: Open Cisco Packet Tracer, go to Network devices > Routers > add 3 routers of 1841.
+Step 2: Now click on Router0 > Switch off the button > add WIC-2T > Switch On. Do the
+        same for remaining Routers.
+Step 3: Go to Connections > select Serial DCE and connect the routers with serial 0/0/0 to serial 0/0/1.
+Step 4: Go to End Devices > add 1 PC to each router.
+Step 5: Go to Connections > choose first wire > connect Router to PC.
+Step 6: Assigning IP address to serial, click on router > config > serial port > checkbox on >
+        clock rate to 64000 then assign IP address and for fastEathernet, click on router > config >
+        fastEathernet port > checkbox on then assign IP address.
+Step 7: Assigning IP address to PCs, click on PC > Desktop > IP Configuration > assign IP
+        address and Default Gateway (i.e. the fastEathernet IP connected to the switch), then the
+        final topology with IP addresses will look like:
+Step 8: To implement BGP, click on Respective Routers then go to CLI tab then execute
+        commands run commands with their respective routers:
+
+Router 0: en
+          conf t
+          router bgp 100
+          neighbor 10.0.0.2 remote-as 200
+          neighbor 20.0.0.1 remote-as 300
+          network 40.0.0.0 mask 255.0.0.0
+          exit
+
+Router 1: en
+          conf t
+          router bgp 200
+          neighbor 10.0.0.1 remote-as 100
+          neighbor 30.0.0.2 remote-as 300
+          network 60.0.0.0 mask 255.0.0.0
+          exit
+
+Router 2: en
+          conf t
+          router bgp 300
+          neighbor 20.0.0.2 remote-as 100
+          neighbor 30.0.0.1 remote-as 200
+          network 50.0.0.0 mask 255.0.0.0
+          exit
+
+PC 1: ping 50.0.0.2
