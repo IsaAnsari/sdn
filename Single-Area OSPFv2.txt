@@ -13,3 +13,29 @@ Step 8: Assigning IP address to PCs, click on PC > Desktop > IP Configuration > 
         final topology with IP addresses will look like:
 Step 9: To implement Single-Area OSPFv2, click on Respective Routers then go to CLI tab
         then execute commands run commands with their respective routers:
+
+Router 0: enable
+          configure terminal
+          router ospf 2
+          network 10.0.0.0 0.255.255.255 area 0
+          network 30.0.0.0 0.255.255.255 area 0
+          exit
+
+Router 1: enable
+          configure terminal
+          router ospf 2
+          network 10.0.0.0 0.255.255.255 area 0
+          network 20.0.0.0 0.255.255.255 area 0
+          network 40.0.0.0 0.255.255.255 area 0
+          exit
+
+Router 2: enable
+          configure terminal
+          router ospf 2
+          network 20.0.0.0 0.255.255.255 area 0
+          network 50.0.0.0 0.255.255.255 area 0
+          exit
+
+PC 1: ping 50.0.0.3
+
+PC 8: ping 30.0.0.2
