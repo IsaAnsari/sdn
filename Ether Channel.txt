@@ -1,0 +1,10 @@
+Step 1: Open Cisco Packet Tracer, go to Network devices > Switches > add 2 switches of 2960.
+Step 2: Go to Connections > select first wire and connect switches 2 to 3 times as shown below:
+Step 3: Go to both switch’s CLI and perform the following commands:
+        Switch> en
+        Switch# conf t
+        Switch(config)# int range fa0/1-4
+        Switch(config-if-range)# channel-group 1 mode on
+        Switch(config-if-range)# ex
+        Switch(config)# ex
+        Switch# show etherchannel summary
