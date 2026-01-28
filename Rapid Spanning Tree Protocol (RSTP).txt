@@ -1,0 +1,9 @@
+Step 1: Open Cisco Packet Tracer, go to Network devices > Switches > add 3 switches of 2960.
+Step 2: Go to Connections > select first wire and connect switches in a triangular (loop)
+        topology as shown below:
+Step 3: Goto Switch 0 and run following commands as shown in figure:
+        Switch> en
+        Switch# conf t
+        Switch(config)# spanning-tree mode rapid-pvst
+        Switch(config)# ex
+        Switch# show spanning-tree
