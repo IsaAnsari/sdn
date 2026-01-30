@@ -1,7 +1,7 @@
 Access Control List (ACL) &
-BGP Communities:
+Border Gateway Protocol (BGP) Communities:
 
-![Access Control List (ACL) & BGP Communities images](images/ACL-and-BGP.png)
+![Access Control List (ACL) & Border Gateway Protocol (BGP) Communities images](images/ACL-and-BGP.png)
 
 
 Ether Channel:
