@@ -1,4 +1,4 @@
-STEPS FOR SINGLE-AREA OSPFv2:
+Access Control List (ACL):
 ![Alt text](images/screenshot.png)
 
 STEPS FOR SINGLE-AREA OSPFv2:
