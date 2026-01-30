@@ -27,4 +27,4 @@ Rapid Spanning Tree Protocol(RSTP):
 
 SINGLE-AREA OSPFv2:
 
-![SINGLE-AREA OSPFv2 images](images/screenshot.png)
+![SINGLE-AREA OSPFv2 images](images/Single-Area-OSPFv2.png)
