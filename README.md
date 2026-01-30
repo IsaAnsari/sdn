@@ -11,12 +11,12 @@ Ether Channel:
 
 Inter-VLAN Routing:
 
-![Inter-VLAN Routing image](images/screenshot.png)
+![Inter-VLAN Routing image](images/Inter-VLAN-Routing.png)
 
 
 Multi-AREA OSPFv2:
 
-![Multi-AREA OSPFv2 image](images/screenshot.png)
+![Multi-AREA OSPFv2 image](images/Multi-Area-OSPFv2.png)
 
 
 Spanning Tree Protocol(STP) &
